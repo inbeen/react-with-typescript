@@ -1,0 +1,20 @@
+*, *::before, *::after{
+  box-sizing: border-box;
+}
+html{
+  font-size: 16px;
+  color: #333;
+}
+body{
+  margin: 0;
+  min-width: 1000px;
+  background: #f5f7fb;
+}
+button{
+  border: none;
+  background: transparent;
+  outline: none;
+}
+.hidden{
+  display: none!important;
+}

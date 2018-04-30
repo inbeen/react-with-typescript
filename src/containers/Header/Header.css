@@ -1,0 +1,79 @@
+.header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 5%;
+  background: white;
+  border: 1px solid #ddd;
+}
+.header-brand{
+  height: 2rem;
+  width: auto;
+  cursor: pointer;
+}
+.header-nav{
+  display: flex;
+  align-items: center;
+  flex: 1;
+  margin: 0;
+}
+.header-nav-item{
+  padding: 0 .5rem;
+  display: inline;
+}
+.header-search{
+  display: flex;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: .3rem .7rem;
+  & input{
+    font-size: 1rem;
+    outline: none;
+    border: none;
+  }
+}
+.header-user{
+  display: flex;
+}
+.header-info{
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  &:hover{
+    color: #777;
+  }
+}
+.header-avatar{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 2rem;
+  width: 2rem;
+  border-radius: 50%;
+  overflow: hidden;
+  & img{
+    height: auto;
+    width: 2rem;
+  }
+}
+.header-name{
+  margin-left: .5rem;
+}
+.header-login{
+  margin-right: .5rem;
+  padding: .3rem .7rem;
+  border: 1px solid #2d89ef;
+  border-radius: 3px;
+  color: #2d89ef;
+  font-size: .9rem;
+  cursor: pointer;
+}
+.header-register{
+  padding: .3rem .7rem;
+  border: 1px solid #2d89ef;
+  border-radius: 3px;
+  background: #2d89ef;
+  color: white;
+  font-size: .9rem;
+  cursor: pointer;
+}

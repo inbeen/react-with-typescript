@@ -1,0 +1,58 @@
+.login{
+  margin: 2rem;
+}
+.login-header{
+  padding: 2rem 0 1rem 0;
+  text-align: center;
+}
+.login-logo{
+  width: 3rem;
+}
+.login-form{
+  width: 300px;
+  margin: 0 auto;
+}
+.login-form-header{
+  font-size: 1.4rem;
+  text-align: center;
+  padding: .5rem;
+  color: #666;
+}
+.login-form-body{
+  padding: 1.5rem;
+  background: white;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  & label {
+    display: block;
+    font-size: .85rem;
+    margin-bottom: .3rem;
+  }
+}
+.login-username, .login-password{
+  display: block;
+  margin-bottom: .7em;
+  padding: 5px;
+  width: 100%;
+  border-radius: 3px;
+  border: 1px solid #ddd;
+  :focus{
+    border: 1px solid #4396ea;
+    border-radius: 3px;
+  }
+}
+.login-btn{
+  margin-top: 1em;
+  padding: 7px;
+  width: 100%;
+  color: white;
+  border-radius: 3px;
+  background: linear-gradient(-180deg, #6caace 0%, #5ab1ef 90%);
+  cursor: pointer;
+}
+.create-account{
+  padding: 15px 10px;
+  font-size: .9rem;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
