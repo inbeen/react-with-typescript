@@ -1,5 +1,6 @@
 const path = require('path')
 const webpack = require('webpack')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const root = __dirname
 
 module.exports = {
@@ -21,9 +22,10 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: [
-          'style-loader', 'css-loader', 'postcss-loader'
-        ]
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: ['css-loader', 'postcss-loader']
+        })
       },
       {
         test: /\.(png|jpe?g|gif)/,
@@ -34,6 +36,7 @@ module.exports = {
   plugins: [
     new webpack.DllReferencePlugin({
       manifest: require('../public/vendor.manifest.json')
-    })
+    }),
+    new ExtractTextPlugin('style.css')
   ]
 }

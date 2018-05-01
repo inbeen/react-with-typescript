@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 5%;
+  padding: 0 5%;
   background: white;
   border: 1px solid #ddd;
 }
@@ -16,17 +16,26 @@
   align-items: center;
   flex: 1;
   margin: 0;
+  color: #9aa0ac;
 }
 .header-nav-item{
-  padding: 0 .5rem;
-  display: inline;
+  padding: 0 .7rem;
+  display: flex;
+  height: 4rem;
+  align-items: center;
+  cursor: pointer;
+  &:hover{
+    color: #797d86;
+  }
 }
 .header-search{
   display: flex;
   border: 1px solid #ddd;
   border-radius: 5px;
-  padding: .3rem .7rem;
+  padding: .3rem 1rem;
+  margin: 0 2rem;
   & input{
+    width: 10rem;
     font-size: 1rem;
     outline: none;
     border: none;

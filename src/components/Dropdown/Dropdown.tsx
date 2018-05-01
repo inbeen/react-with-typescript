@@ -3,61 +3,39 @@ import './Dropdown.css'
 
 interface DropdownProps {
   children: any
-  links: any
+  content: any
   placement: 'left' | 'right'
+  arrow: boolean
 }
 
 interface DropdownState {
   visible: boolean
-  left: number
-  right: number
-  bottom: number
 }
 
 export class Dropdown extends React.Component<DropdownProps, DropdownState> {
   constructor(props: DropdownProps) {
     super(props)
     this.state = {
-      visible: false,
-      left: NaN,
-      right: NaN,
-      bottom: NaN
+      visible: false
     },
     this.dropIt = this.dropIt.bind(this)
   }
 
-  dropIt(e) {
-    if(this.state.left) {
-      this.setState({
-        visible: !this.state.visible
-      })
-    } else {
-      let el = e.target
-      this.setState({
-        visible: !this.state.visible,
-        left: el.offsetLeft,
-        right: window.innerWidth - el.offsetWidth - el.offsetLeft,
-        bottom: el.offsetTop + el.offsetHeight
-      })
-    }
+  dropIt() {
+    this.setState({
+      visible: !this.state.visible
+    })
   }
 
   render() {
-    const dropdownList = Object.keys(this.props.links).map((item, index) =>
-      item? <a className='dropdown-item' onClick={this.props.links[item]} key={index}>{item}</a>
-      : <div className='dropdown-line' key={index}></div>
-    )
-
     return (
       <div className='dropdown'>
         <div className={this.state.visible? 'dropdown-content dropdown-visible': 'dropdown-content'}
              onClick={this.dropIt}>{this.props.children}</div>
-        <div className={getClass(this.state.visible, this.props.placement)}
-             style={getStyle(this.props.placement, this.state.left, this.state.right, this.state.bottom)}
+        <div className={getClass(this.state.visible, this.props.arrow, this.props.placement)}
+             style={getStyle(this.props.placement)}
              onClick={this.dropIt}>
-          <nav className='dropdown-list'>
-            { dropdownList }
-          </nav>
+          {this.props.content}
         </div>
       </div>
     )
@@ -65,15 +43,17 @@ export class Dropdown extends React.Component<DropdownProps, DropdownState> {
 }
 
 // helper
-function getClass(visible: boolean, placement?:string){
+function getClass(visible: boolean, arrow: boolean, placement?:string){
   let className = 'dropdown-box '
   if(!visible) className = 'hidden ' + className
-  placement === 'right'? className += 'dropdown-right': null
+  if(!arrow) return className
+  className += ' dropdown-arrow'
+  placement === 'right'? className += ' dropdown-arrow-right': null
   return className
 }
-function getStyle(placement: string, left, right, bottom) {
-  let style = {top: bottom + 16}
-  placement === 'left'? Object.assign(style, {left: left})
-  : Object.assign(style, {right: right})
+function getStyle(placement: string) {
+  let style = {top: '40px'}
+  placement === 'left'? Object.assign(style, {left: '0'})
+  : Object.assign(style, {right: '0'})
   return style
 }

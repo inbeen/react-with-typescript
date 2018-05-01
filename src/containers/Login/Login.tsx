@@ -79,21 +79,23 @@ class Login extends React.Component<LoginProps, LoginState> {
         <div className='login-form'>
           <div className='login-form-header'>Sign in to forInterview</div>
           <div className='login-form-body'>
-            <label htmlFor='login_username'>Username</label>
-            <input id='login_username'
-                   type='text'
-                   className='login-username'
-                   value={this.state.username}
-                   onChange={this.setUsername}/>
-            <label htmlFor='login_password'>Password</label>
-            <input id='login_password'
-                   type='password'
-                   className='login-password'
-                   value={this.state.password}
-                   onChange={this.setPassword}/>
+            <span className='login-form-input'>
+              <span><i className='fa fa-user'></i></span>
+              <input type='text'
+                     placeholder='Username'
+                     value={this.state.username}
+                     onChange={this.setUsername}/>
+            </span>
+            <span className='login-form-input'>
+            <span><i className='fa fa-lock'></i></span>
+              <input type='password'
+                     placeholder='Password'
+                     value={this.state.password}
+                     onChange={this.setPassword}/>
+            </span>
             <button className='login-btn' onClick={this.login}>Sign in</button>
           </div>
-          <p className='create-account'>New to forInterview? Create an account.</p>
+          <p className='create-account'>Or sign up now!</p>
         </div>
       </div>
     )

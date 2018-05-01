@@ -6,6 +6,7 @@ import * as actions from '../../actions'
 import Header from '../../containers/Header/Header'
 import { getUserData } from '../../selectors'
 import http from '../../http'
+import './Index.css'
 
 const mapStateToProps = state => {
   return {
@@ -52,9 +53,22 @@ class Index extends React.Component<IndexProps, IndexState> {
 
   render() {
     return (
-      <div className='dashboard'>
+      <div className='container'>
         <Header user={this.props.user} history={this.props.history}
                 isLogin={this.state.isLogin} signOut={this.signOut}></Header>
+        <div className='content'>
+          <div className='sider'>
+            <nav className='sider-menu'>
+              <a>option 1</a>
+              <a>option 2</a>
+              <a>option 3</a>
+              <a>option 4</a>
+              <a>option 5</a>
+            </nav>
+          </div>
+          <div className='layout'>This is the content</div>
+        </div>
+        <div className='footer'></div>
       </div>
     )
   }
