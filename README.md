@@ -12,3 +12,9 @@
 * Reselect
 * postcss
 * MockJS
+
+
+
+此外也拿来存放自己实现的一些组件，组件列表：
+
+* Dropdown - 下拉框

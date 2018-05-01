@@ -56,19 +56,7 @@ class Index extends React.Component<IndexProps, IndexState> {
       <div className='container'>
         <Header user={this.props.user} history={this.props.history}
                 isLogin={this.state.isLogin} signOut={this.signOut}></Header>
-        <div className='content'>
-          <div className='sider'>
-            <nav className='sider-menu'>
-              <a>option 1</a>
-              <a>option 2</a>
-              <a>option 3</a>
-              <a>option 4</a>
-              <a>option 5</a>
-            </nav>
-          </div>
-          <div className='layout'>This is the content</div>
-        </div>
-        <div className='footer'></div>
+        <p>Congratulations, everything under controll :) </p>
       </div>
     )
   }

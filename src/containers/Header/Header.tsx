@@ -22,7 +22,7 @@ export default class Header extends React.Component<HeaderProps, HeaderState> {
 
   render() {
     const dropdownList = (
-      <nav>
+      <nav className='header-user-options'>
         <a onClick={() => {console.dir(1)}}>Profile</a>
         <div></div>
         <a onClick={() => {this.props.signOut()}}>Sign out</a>
@@ -30,7 +30,7 @@ export default class Header extends React.Component<HeaderProps, HeaderState> {
     )
     
     const loginOrNot = this.props.isLogin? (
-        <Dropdown placement='right' content={dropdownList} arrow>
+        <Dropdown placement='right' content={dropdownList} arrow trigger='click' style={{top: '40px'}}>
           <img className='header-avatar' src={this.props.user.avatar}/>
           <span className='header-name'>{this.props.user.username}</span>
         </Dropdown>
@@ -44,15 +44,6 @@ export default class Header extends React.Component<HeaderProps, HeaderState> {
 
     return (
       <header className='header'>
-        <img className='header-brand' src='https://i.loli.net/2018/03/19/5aafd07b355b2.jpg'/>
-        <nav className='header-nav'>
-          <div className='header-search'>
-            <input type='text'/>
-          </div>
-          <a className='header-nav-item'>首页</a>
-          <a className='header-nav-item'>检索</a>
-          <a className='header-nav-item'>页面3</a>
-        </nav>
         <div className='header-user'>{loginOrNot}</div>
       </header>
     )

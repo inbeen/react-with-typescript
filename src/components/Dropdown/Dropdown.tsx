@@ -4,8 +4,10 @@ import './Dropdown.css'
 interface DropdownProps {
   children: any
   content: any
+  trigger: 'hover' | 'click'
   placement: 'left' | 'right'
-  arrow: boolean
+  arrow?: boolean
+  style?: object
 }
 
 interface DropdownState {
@@ -29,11 +31,13 @@ export class Dropdown extends React.Component<DropdownProps, DropdownState> {
 
   render() {
     return (
-      <div className='dropdown'>
-        <div className={this.state.visible? 'dropdown-content dropdown-visible': 'dropdown-content'}
-             onClick={this.dropIt}>{this.props.children}</div>
+      <div className={this.props.trigger === 'click'? 'dropdown': 'dropdown dropdown-hover'}>
+        {this.props.trigger === 'click'
+        ? <div className={this.state.visible? 'dropdown-content dropdown-layer': 'dropdown-content'}
+               onClick={this.dropIt}>{this.props.children}</div>
+        : <div className={this.state.visible? 'dropdown-content dropdown-layer': 'dropdown-content'}>{this.props.children}</div>}
         <div className={getClass(this.state.visible, this.props.arrow, this.props.placement)}
-             style={getStyle(this.props.placement)}
+             style={getStyle(this.props.placement, this.props.style)}
              onClick={this.dropIt}>
           {this.props.content}
         </div>
@@ -45,15 +49,15 @@ export class Dropdown extends React.Component<DropdownProps, DropdownState> {
 // helper
 function getClass(visible: boolean, arrow: boolean, placement?:string){
   let className = 'dropdown-box '
-  if(!visible) className = 'hidden ' + className
+  if(visible) className += 'dropdown-visible'
   if(!arrow) return className
   className += ' dropdown-arrow'
   placement === 'right'? className += ' dropdown-arrow-right': null
   return className
 }
-function getStyle(placement: string) {
-  let style = {top: '40px'}
-  placement === 'left'? Object.assign(style, {left: '0'})
-  : Object.assign(style, {right: '0'})
-  return style
+function getStyle(placement: string, style: object = {}) {
+  let res
+  placement === 'left'? res = Object.assign({left: '0'}, style)
+  : res = Object.assign({right: '0'}, style)
+  return res
 }

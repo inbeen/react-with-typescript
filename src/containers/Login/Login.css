@@ -57,8 +57,22 @@
   cursor: pointer;
 }
 .create-account{
+  display: flex;
+  align-items: center;
   padding: .7rem 1.5rem;
   font-size: .9rem;
   border-radius: 5px;
   border: 1px solid #ddd;
+  & span{
+    color: #2d89ef;
+    cursor: pointer;
+  }
+  & a{
+    margin-left: 1rem;
+    cursor: pointer;
+    color: #666;
+    &:hover{
+      color: #333;
+    }
+  }
 }

@@ -95,7 +95,11 @@ class Login extends React.Component<LoginProps, LoginState> {
             </span>
             <button className='login-btn' onClick={this.login}>Sign in</button>
           </div>
-          <p className='create-account'>Or sign up now!</p>
+          <p className='create-account'>
+            <span>Sign Up</span>
+            <a><i className='fa fa-github fa-lg'></i></a>
+            <a><i className='fa fa-google fa-lg'></i></a>
+          </p>
         </div>
       </div>
     )
